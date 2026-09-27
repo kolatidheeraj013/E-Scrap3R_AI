@@ -19,7 +19,7 @@ The world generates over **62 million metric tons of e-waste annually**, with le
 
 **E-Scrap3R AI (ReUseChain)** is a full-stack, enterprise-grade platform designed to close the circular economy loop for computing hardware. By pairing **14 native low-level host diagnostic probes** with a **multi-provider LLM reasoning brain**, **dual-mesh Telegram bots**, **ONDC-compliant doorstep technician dispatch**, and a **verifiable Digital Product Passport (DPP)**, E-Scrap3R AI autonomously enforces the **Circularity Waterfall**:
 
-$$\text{Inspect} \longrightarrow \text{Repair} \longrightarrow \text{Reuse} \longrightarrow \text{Recycle}$$
+$$\text{Repair} \longrightarrow \text{Reuse} \longrightarrow \text{Recycle}$$
 
 ---
 

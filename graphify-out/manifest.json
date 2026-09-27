@@ -438,9 +438,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1790494109.7991402,
-    "seen": 1790494126.774163,
-    "ast_hash": "72bd4293e49e8775e6818e96ea6e690f",
+    "mtime": 1790494756.4976892,
+    "seen": 1790494808.6054761,
+    "ast_hash": "a642003eafc31f54ee0e8d129b88eb21",
     "semantic_hash": ""
   },
   "ReUseChain-present1.md": {
@@ -474,16 +474,16 @@
     "semantic_hash": "6b1720bda2e274e593a64f57144cfabc"
   },
   "FULL_PROJECT_MERMAID.md": {
-    "mtime": 1789501100.588818,
-    "seen": 1789501206.4942303,
-    "ast_hash": "00a9aef21d255edf131c064818fcc0a3",
+    "mtime": 1790494768.551538,
+    "seen": 1790494808.6054702,
+    "ast_hash": "6b22633f109f48f2437953b8ea790219",
     "semantic_hash": ""
   },
   "src/lib/mermaid-code.ts": {
-    "mtime": 1789501175.1234777,
-    "seen": 1789802854.7474315,
-    "ast_hash": "b6902214466eebcf0418dc51545fae61",
-    "semantic_hash": "b6902214466eebcf0418dc51545fae61"
+    "mtime": 1790494762.1226726,
+    "seen": 1790494808.6054163,
+    "ast_hash": "1addc50f48e4e22967d0cb20c36a8eac",
+    "semantic_hash": ""
   },
   "scripts/loop-chatbot-agent.ts": {
     "mtime": 1789645830.6516087,
