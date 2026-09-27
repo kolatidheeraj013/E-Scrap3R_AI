@@ -438,9 +438,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1790494109.7991402,
-    "seen": 1790494126.774163,
-    "ast_hash": "72bd4293e49e8775e6818e96ea6e690f",
+    "mtime": 1789205595.4871383,
+    "seen": 1789392228.8610241,
+    "ast_hash": "4956483b98842f005112a248d1039ed0",
     "semantic_hash": ""
   },
   "ReUseChain-present1.md": {
@@ -513,12 +513,6 @@
     "mtime": 1789577429.6224964,
     "seen": 1789805607.2185364,
     "ast_hash": "abcab3259f8af60e05616609f07f0a1e",
-    "semantic_hash": ""
-  },
-  "docs/architecture-2d.png": {
-    "mtime": 1790494058.3696601,
-    "seen": 1790494126.7741709,
-    "ast_hash": "174861ff3c387bc1898444458bdda045",
     "semantic_hash": ""
   }
 }
