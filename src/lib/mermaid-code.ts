@@ -70,7 +70,7 @@ export const FULL_PROJECT_MERMAID_CODE = `flowchart TB
     subgraph L3["⚡ LAYER 3: Autonomous Execution & Circularity Waterfall (Architecture 3: Execution)"]
         direction TB
         
-        TRIAGE_GATE{"⚖️ Circularity Triage Decision Gate<br/><i>Repair ➔ Reuse ➔ Recycle</i>"}
+        TRIAGE_GATE{"⚖️ Circularity Triage Decision Gate<br/><i>Device ➔ Agent: 1) Reuse, 2) Repair, 3) Restore</i>"}
 
         subgraph L3_HEALTHY["✅ Baseline Nominal State"]
             HEALTHY_OUT["All Systems Nominal &amp; Healthy<br/><i>Zero Booking Required • 100% Operational Baseline</i>"]

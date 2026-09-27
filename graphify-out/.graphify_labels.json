@@ -6,9 +6,9 @@
   "4": "workflow.ts",
   "5": "hardware-ai-agent.ts",
   "6": "compilerOptions",
+  "7": "dependencies",
   "8": "ReUseChain-present1.md",
   "9": "Website Overview",
-  "10": "devDependencies",
   "11": "simulate-day/route.ts",
   "12": "ReUseChain AI Reasoning Engine - Maintenance & Architecture Guide",
   "13": "windows-telemetry/route.ts",
@@ -26,15 +26,5 @@
   "25": "Collect-DeviceTelemetry.ps1",
   "26": "ReUseChain-DesktopAgent.ps1",
   "27": "tailwind.config.js",
-  "28": "layout.tsx",
-  "29": "remediate/route.ts",
-  "30": "media/route.ts",
-  "31": "services/route.ts",
-  "32": "approvals/route.ts",
-  "33": "settings/route.ts",
-  "34": "verify-wipe/route.ts",
-  "35": "keyboard/route.ts",
-  "36": "dispatch/route.ts",
-  "37": "intake/route.ts",
-  "38": "cancel/route.ts"
+  "28": "layout.tsx"
 }

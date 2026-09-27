@@ -1,17 +1,17 @@
-# Graph Report - ReUseChain  (2026-09-19)
+# Graph Report - ReUseChain  (2026-09-27)
 
 ## Corpus Check
-- 84 files · ~88,701 words
+- 84 files · ~96,366 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 5 file(s) not represented in the graph (top: (none) 2, .example 1, .prisma 1)
 
 ## Summary
-- 424 nodes · 763 edges · 39 communities (22 shown, 13 thin omitted)
+- 454 nodes · 793 edges · 38 communities (21 shown, 13 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 12 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `22781f15`
+- Built from commit: `39851d64`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -23,7 +23,6 @@
 - workflow.ts
 - hardware-ai-agent.ts
 - compilerOptions
-- dependencies
 - ReUseChain-present1.md
 - Website Overview
 - devDependencies
@@ -34,7 +33,7 @@
 - external/route.ts
 - KeyboardTestGame
 - 🗺️ ReUseChain: Master Unified 2D Architecture Blueprint
-- Introduction to GitHub
+- ♻️ E-Scrap3R AI (ReUseChain)
 - Collect-WindowsTelemetry.ps1
 - rules/graphify.md
 - workflows/graphify.md
@@ -79,39 +78,35 @@
 ## Import Cycles
 - None detected.
 
-## Communities (39 total, 13 thin omitted)
+## Communities (38 total, 13 thin omitted)
 
 ### Community 0 - "react"
-Cohesion: 0.07
-Nodes (30): class-variance-authority, clsx, lucide-react, react, tailwind-merge, ActionProofDetails, CapabilitySuggestion, ChatMessage (+22 more)
+Cohesion: 0.08
+Nodes (28): class-variance-authority, lucide-react, react, ActionProofDetails, CapabilitySuggestion, ChatMessage, DiagnosticAssistantPage(), GraphEdge (+20 more)
 
 ### Community 1 - "prisma.ts"
 Cohesion: 0.15
 Nodes (4): dynamic, dynamic, dynamic, prisma
 
 ### Community 2 - "telegram-service.ts"
-Cohesion: 0.09
-Nodes (46): AFTER_BOOKING_KEYBOARD, DEFAULT_KEYBOARD, pollAdminBot(), pollBackupBot(), sha256(), runVerification(), runVerification(), execAsync (+38 more)
+Cohesion: 0.10
+Nodes (43): AFTER_BOOKING_KEYBOARD, DEFAULT_KEYBOARD, pollAdminBot(), pollBackupBot(), sha256(), runVerification(), runVerification(), execAsync (+35 more)
 
 ### Community 3 - "package.json"
-Cohesion: 0.06
-Nodes (31): name, private, scripts, agent:loop, build, dev, prisma:generate, prisma:push (+23 more)
+Cohesion: 0.04
+Nodes (45): dependencies, class-variance-authority, clsx, @langchain/core, @langchain/langgraph, lucide-react, next, @prisma/client (+37 more)
 
 ### Community 4 - "workflow.ts"
 Cohesion: 0.10
 Nodes (34): POST(), SimulatorPage(), AssessmentDossier, evaluateDeviceAfterlife(), sha256(), adminEscalationLoopNode(), compliancePolicyAgent(), createReUseChainWorkflow() (+26 more)
 
 ### Community 5 - "hardware-ai-agent.ts"
-Cohesion: 0.15
-Nodes (19): EXIT_KEYWORDS, isExitKeyword(), runLoopChatbotAgent(), sha256(), POST(), sha256(), AiModelDiagnosis, checkAllDiagnosticTools() (+11 more)
+Cohesion: 0.13
+Nodes (22): EXIT_KEYWORDS, isExitKeyword(), runLoopChatbotAgent(), sha256(), POST(), sha256(), AiModelDiagnosis, checkAllDiagnosticTools() (+14 more)
 
 ### Community 6 - "compilerOptions"
 Cohesion: 0.11
 Nodes (17): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+9 more)
-
-### Community 7 - "dependencies"
-Cohesion: 0.17
-Nodes (12): dependencies, class-variance-authority, clsx, @langchain/core, @langchain/langgraph, lucide-react, next, @prisma/client (+4 more)
 
 ### Community 8 - "ReUseChain-present1.md"
 Cohesion: 0.17
@@ -149,9 +144,9 @@ Nodes (6): deduceSpecificFailure(), ExternalDiagnosticPayload, generateVectorEmb
 Cohesion: 0.40
 Nodes (4): 🚀 Interactive Exploration in Web Application, 🎨 Master Unified 2D Mermaid Diagram, 🗺️ ReUseChain: Master Unified 2D Architecture Blueprint, 🔍 Subsystem Key & Architecture Cross-Reference
 
-### Community 18 - "Introduction to GitHub"
-Cohesion: 0.50
-Nodes (3): Introduction to GitHub, :keyboard: Activity: Your first branch, Step 1: Create a branch
+### Community 18 - "♻️ E-Scrap3R AI (ReUseChain)"
+Cohesion: 0.06
+Nodes (33): 1. AI Quick Check Up (`/desktop-agent`), 1. Clone the Repository, 1. 🤖 Thinking AI Action Chat & Terminal Sandbox (`/assistant`), 2. 📱 Dual Telegram Bot Mesh Architecture, 2. Install Dependencies, 2. Thinking AI Action Chat (`/assistant`), 🖼️ 2D Architecture Diagram, 🔀 2D Architecture Flowchart (Mermaid) (+25 more)
 
 ### Community 29 - "remediate/route.ts"
 Cohesion: 0.47
@@ -170,24 +165,24 @@ Cohesion: 0.67
 Nodes (3): dynamic, POST(), sha256()
 
 ## Knowledge Gaps
-- **149 isolated node(s):** `name`, `version`, `private`, `dev`, `build` (+144 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 199 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **173 isolated node(s):** `name`, `version`, `private`, `dev`, `build` (+168 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 223 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **13 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `@prisma/client` connect `package.json` to `prisma.ts`?**
-  _High betweenness centrality (0.257) - this node is a cross-community bridge._
+  _High betweenness centrality (0.224) - this node is a cross-community bridge._
 - **Why does `react` connect `react` to `package.json`, `workflow.ts`, `layout.tsx`?**
-  _High betweenness centrality (0.114) - this node is a cross-community bridge._
+  _High betweenness centrality (0.099) - this node is a cross-community bridge._
 - **Why does `lucide-react` connect `react` to `package.json`, `workflow.ts`, `layout.tsx`?**
-  _High betweenness centrality (0.108) - this node is a cross-community bridge._
+  _High betweenness centrality (0.094) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `private` to the rest of the system?**
-  _149 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _173 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `react` be split into smaller, more focused modules?**
-  _Cohesion score 0.07199297629499561 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07552447552447553 - nodes in this community are weakly interconnected._
 - **Should `telegram-service.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.08852459016393442 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09586466165413533 - nodes in this community are weakly interconnected._
 - **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.043478260869565216 - nodes in this community are weakly interconnected._
