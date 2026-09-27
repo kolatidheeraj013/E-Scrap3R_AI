@@ -437,15 +437,14 @@ export async function POST(req: NextRequest) {
       const passportHash = sha256(`KEYBOARD_REPORT_INGEST:${assetTag}:${isFailed ? "FAILED" : "PASSED"}:${Date.now()}`);
 
       if (isFailed) {
+        const passedKeys = Math.max(0, totalTested - deadKeys.length);
         return NextResponse.json({
           success: true,
           actionType: "KEYBOARD_TEST_FAILED",
-          completionMessage: `⚠️ [KeyStrike Hardware Test Ingested - Defect Confirmed!]\n\n` +
-            `• Tested Buttons: ${totalTested} keys\n` +
-            `• Dead / Unresponsive Keys: ${deadKeys.join(", ")}\n` +
-            `• Switch Contact Latency: Exceeded countdown timeout threshold\n` +
-            `• Triage Finding: Isolated switch contact fatigue or keyboard matrix ribbon cable trace fracture on key(s) [${deadKeys.join(", ")}].\n\n` +
-            `Because physical hardware failure is verified, I have unlocked all 3 Circular Pathways below (1. Repair via Doorstep Technician, 2. Reuse & Component Resale, 3. Certified Zero-Landfill E-Waste). Choose your preferred path!`,
+          completionMessage: `⚠️ Hardware Test Ingested: Isolated Switch Anomaly on [${deadKeys.join(", ")}]\n\n` +
+            `• Test Results: ${deadKeys.length} unresponsive key (${passedKeys} of ${totalTested} keys passed successfully)\n` +
+            `• Primary Recommendation: Doorstep Repair / Switch Service ($45 USD via ONDC)\n` +
+            `• Circular Assessment: Device retains ~98% residual utility. Recycling is NOT recommended for isolated key issues.`,
           actionDetails: {
             aiModelName: "Cognitive Hardware Diagnostic Engine",
             interpretedIntent: "Keyboard Hardware Reflex Test Output Ingestion & Matrix Verification",
@@ -459,20 +458,52 @@ export async function POST(req: NextRequest) {
               windowsCommand: "Get-CimInstance Win32_Keyboard | Select-Object Description, Layout, Status",
             },
             windowsCommandExecuted: "powershell -NoProfile -Command \"Get-CimInstance Win32_Keyboard | Select-Object Description, Layout, Status\"",
-            rawHostOutput: `Win32_Keyboard Description: Standard PS/2 Keyboard | Status: Degraded\nKeyStrike Reflex Game Log: ${deadKeys.length} dead key(s) [${deadKeys.join(", ")}] exceeded 3.0s timeout.\nController Hardware State: Switch contact open-circuit or matrix ribbon trace fracture detected on [${deadKeys.join(", ")}].`,
+            rawHostOutput: `Win32_Keyboard Description: Standard PS/2 Keyboard | Status: OK (Controller)\nKeyStrike Reflex Game Log: ${deadKeys.length} key(s) [${deadKeys.join(", ")}] exceeded timeout.\nController State: Host driver nominal; localized key switch contact fatigue detected on [${deadKeys.join(", ")}].`,
             testedKeys: totalTested,
-            passedKeys: Math.max(0, totalTested - deadKeys.length),
+            passedKeys,
             problematicKeys: deadKeys,
             score,
-            controllerStatus: `Matrix Ribbon Trace Fault on [${deadKeys.join(", ")}]`,
-            recommendation: "Book Alex Rivera for doorstep keyboard membrane swap or repurpose machine into NAS server.",
+            controllerStatus: `Localized Switch Anomaly on [${deadKeys.join(", ")}]`,
+            recommendation: "Book Alex Rivera for doorstep switch repair ($45) or try compressed air cleaning.",
             triageVerdict: "repair",
+            defectSeverity: "minor",
+            recommendedAction: "repair",
             threeFactors: {
-              factor1_health: `Component Health: Physical Hardware Defect on [${deadKeys.join(", ")}]`,
-              factor2_impact: "Functional Impact: Keys fail to register physical scancodes",
-              factor3_rootCause: "Probable Root Cause: Switch contact fatigue or ribbon cable fracture",
+              factor1_health: `Component Health: Isolated Switch Anomaly on [${deadKeys.join(", ")}] (${passedKeys}/${totalTested} keys passed)`,
+              factor2_impact: "Functional Impact: Single key unresponsive; remainder of system 100% operational",
+              factor3_rootCause: "Probable Root Cause: Localized dust/particulate beneath keycap or switch contact wear",
             },
-            finalActions,
+            suggestions: [
+              "Trigger Doorstep Repair Order ($45 ONDC)",
+              `Clean ${deadKeys[0]} switch with compressed air`,
+              "Check Windows Filter & Sticky Keys",
+              `Remap ${deadKeys[0]} using PowerToys`,
+            ],
+            orderTrigger: {
+              technician: "Alex Rivera (Dell/HP Certified)",
+              serviceType: `Keyboard Repair (${deadKeys.join(", ")})`,
+              feeUSD: 45.0,
+              scheduledSlot: "Tomorrow, 10:30 AM - 12:00 PM",
+              provider: "UrbanCare Hardware Logistics on ONDC Network",
+              actionPrompt: "Book Alex Rivera for doorstep repair tomorrow 10am",
+            },
+            finalActions: {
+              repair: {
+                ...finalActions.repair,
+                recommended: true,
+                reason: `Best value: Restores 100% utility to ${deadKeys.join(", ")} at minimal cost ($45 vs $600 new laptop).`,
+              },
+              reuse: {
+                ...finalActions.reuse,
+                recommended: false,
+                reason: "Secondary option: Consider if whole laptop replacement is planned.",
+              },
+              recycle: {
+                ...finalActions.recycle,
+                recommended: false,
+                notRecommendedReason: "Not recommended. Device is 98% healthy; recycling for a single key defect causes unnecessary e-waste.",
+              },
+            },
             passportHash,
           },
         });
@@ -1151,6 +1182,9 @@ export async function POST(req: NextRequest) {
         threeFactors: aiDiag.threeFactors,
         triageVerdict: aiDiag.triageVerdict,
         conditionAssessment: aiDiag.conditionAssessment,
+        defectSeverity: aiDiag.defectSeverity,
+        suggestions: aiDiag.suggestions,
+        orderTrigger: aiDiag.orderTrigger,
         thinkingProcess: aiDiag.thinkingProcess,
         interactiveTest: aiDiag.interactiveTest,
         finalActions: ((aiDiag.triageVerdict as string) === "repair" || (aiDiag.triageVerdict as string) === "reuse" || (aiDiag.triageVerdict as string) === "recycle") && 
@@ -1161,7 +1195,26 @@ export async function POST(req: NextRequest) {
            text.includes("reuse") || 
            text.includes("recycle") || 
            text.includes("trouble") || 
-           text.includes("broken")) ? finalActions : undefined,
+           text.includes("broken")) ? (
+             aiDiag.defectSeverity === "minor" ? {
+               ...finalActions,
+               repair: {
+                 ...finalActions.repair,
+                 recommended: true,
+                 reason: "High repairability score: Doorstep servicing restores full functionality at low cost.",
+               },
+               reuse: {
+                 ...finalActions.reuse,
+                 recommended: false,
+                 reason: "Secondary option: Only consider if replacing the whole laptop.",
+               },
+               recycle: {
+                 ...finalActions.recycle,
+                 recommended: false,
+                 notRecommendedReason: "Not recommended for minor component defect. Device has 98% residual value; recycling would needlessly scrap working hardware.",
+               },
+             } : finalActions
+           ) : undefined,
         passportHash,
       },
     });

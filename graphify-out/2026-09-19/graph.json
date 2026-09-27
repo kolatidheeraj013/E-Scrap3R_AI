@@ -134,6 +134,19 @@
       "source_location": "L37"
     },
     {
+      "id": "src_app_api_diagnostics_remediate_route_remediationstepresult",
+      "label": "RemediationStepResult",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "remediationstepresult",
+      "source_file": "src/app/api/diagnostics/remediate/route.ts",
+      "source_location": "L13"
+    },
+    {
       "id": "src_lib_trend_engine_healthpoint",
       "label": "HealthPoint",
       "_callable": true,
@@ -301,19 +314,6 @@
       "norm_label": "visiondiagnosticresult",
       "source_file": "src/lib/vision-diagnostic-engine.ts",
       "source_location": "L3"
-    },
-    {
-      "id": "src_app_api_diagnostics_remediate_route_remediationstepresult",
-      "label": "RemediationStepResult",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 29,
-      "community_name": "remediate/route.ts",
-      "file_type": "code",
-      "norm_label": "remediationstepresult",
-      "source_file": "src/app/api/diagnostics/remediate/route.ts",
-      "source_location": "L13"
     },
     {
       "id": "src_lib_agent_orchestrator_assessmentdossier",
@@ -725,6 +725,42 @@
       "source_location": "L4"
     },
     {
+      "id": "src_app_api_approvals_route_get",
+      "label": "GET()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "get()",
+      "source_file": "src/app/api/approvals/route.ts",
+      "source_location": "L9"
+    },
+    {
+      "id": "src_app_api_approvals_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "src/app/api/approvals/route.ts",
+      "source_location": "L30"
+    },
+    {
+      "id": "src_app_api_approvals_route_sha256",
+      "label": "sha256()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "sha256()",
+      "source_file": "src/app/api/approvals/route.ts",
+      "source_location": "L5"
+    },
+    {
       "id": "src_app_api_devices_route_get",
       "label": "GET()",
       "_callable": true,
@@ -737,6 +773,114 @@
       "source_location": "L6"
     },
     {
+      "id": "src_app_api_diagnostics_keyboard_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "src/app/api/diagnostics/keyboard/route.ts",
+      "source_location": "L9"
+    },
+    {
+      "id": "src_app_api_diagnostics_keyboard_route_sha256",
+      "label": "sha256()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "sha256()",
+      "source_file": "src/app/api/diagnostics/keyboard/route.ts",
+      "source_location": "L5"
+    },
+    {
+      "id": "src_app_api_diagnostics_remediate_route_get",
+      "label": "GET()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "get()",
+      "source_file": "src/app/api/diagnostics/remediate/route.ts",
+      "source_location": "L22"
+    },
+    {
+      "id": "src_app_api_diagnostics_remediate_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "src/app/api/diagnostics/remediate/route.ts",
+      "source_location": "L36"
+    },
+    {
+      "id": "src_app_api_diagnostics_remediate_route_sha256",
+      "label": "sha256()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "sha256()",
+      "source_file": "src/app/api/diagnostics/remediate/route.ts",
+      "source_location": "L9"
+    },
+    {
+      "id": "src_app_api_dispatch_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "src/app/api/dispatch/route.ts",
+      "source_location": "L9"
+    },
+    {
+      "id": "src_app_api_dispatch_route_sha256",
+      "label": "sha256()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "sha256()",
+      "source_file": "src/app/api/dispatch/route.ts",
+      "source_location": "L5"
+    },
+    {
+      "id": "src_app_api_intake_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "src/app/api/intake/route.ts",
+      "source_location": "L9"
+    },
+    {
+      "id": "src_app_api_intake_route_sha256",
+      "label": "sha256()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "sha256()",
+      "source_file": "src/app/api/intake/route.ts",
+      "source_location": "L5"
+    },
+    {
       "id": "src_app_api_learning_route_get",
       "label": "GET()",
       "_callable": true,
@@ -747,6 +891,78 @@
       "norm_label": "get()",
       "source_file": "src/app/api/learning/route.ts",
       "source_location": "L6"
+    },
+    {
+      "id": "src_app_api_media_route_generatevectorembedding",
+      "label": "generateVectorEmbedding()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "generatevectorembedding()",
+      "source_file": "src/app/api/media/route.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "src_app_api_media_route_get",
+      "label": "GET()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "get()",
+      "source_file": "src/app/api/media/route.ts",
+      "source_location": "L105"
+    },
+    {
+      "id": "src_app_api_media_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "src/app/api/media/route.ts",
+      "source_location": "L28"
+    },
+    {
+      "id": "src_app_api_media_route_sha256",
+      "label": "sha256()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "sha256()",
+      "source_file": "src/app/api/media/route.ts",
+      "source_location": "L5"
+    },
+    {
+      "id": "src_app_api_ondc_cancel_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "src/app/api/ondc/cancel/route.ts",
+      "source_location": "L9"
+    },
+    {
+      "id": "src_app_api_ondc_cancel_route_sha256",
+      "label": "sha256()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "sha256()",
+      "source_file": "src/app/api/ondc/cancel/route.ts",
+      "source_location": "L5"
     },
     {
       "id": "src_app_api_ondc_profile_route_get",
@@ -773,6 +989,54 @@
       "source_location": "L39"
     },
     {
+      "id": "src_app_api_ondc_services_route_get",
+      "label": "GET()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "get()",
+      "source_file": "src/app/api/ondc/services/route.ts",
+      "source_location": "L250"
+    },
+    {
+      "id": "src_app_api_ondc_services_route_parsesingleturnprompt",
+      "label": "parseSingleTurnPrompt()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "parsesingleturnprompt()",
+      "source_file": "src/app/api/ondc/services/route.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "src_app_api_ondc_services_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "src/app/api/ondc/services/route.ts",
+      "source_location": "L59"
+    },
+    {
+      "id": "src_app_api_ondc_services_route_sha256",
+      "label": "sha256()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "sha256()",
+      "source_file": "src/app/api/ondc/services/route.ts",
+      "source_location": "L5"
+    },
+    {
       "id": "src_app_api_ondc_track_id_route_get",
       "label": "GET()",
       "_callable": true,
@@ -795,6 +1059,54 @@
       "norm_label": "get()",
       "source_file": "src/app/api/passport/route.ts",
       "source_location": "L6"
+    },
+    {
+      "id": "src_app_api_settings_route_get",
+      "label": "GET()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "get()",
+      "source_file": "src/app/api/settings/route.ts",
+      "source_location": "L6"
+    },
+    {
+      "id": "src_app_api_settings_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "src/app/api/settings/route.ts",
+      "source_location": "L33"
+    },
+    {
+      "id": "src_app_api_verify_wipe_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "src/app/api/verify-wipe/route.ts",
+      "source_location": "L11"
+    },
+    {
+      "id": "src_app_api_verify_wipe_route_sha256",
+      "label": "sha256()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "sha256()",
+      "source_file": "src/app/api/verify-wipe/route.ts",
+      "source_location": "L5"
     },
     {
       "id": "src_app_track_page_trackindexpage",
@@ -1034,7 +1346,7 @@
       "file_type": "code",
       "norm_label": "polladminbot()",
       "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L596"
+      "source_location": "L448"
     },
     {
       "id": "scripts_run_telegram_bots_pollbackupbot",
@@ -1046,7 +1358,7 @@
       "file_type": "code",
       "norm_label": "pollbackupbot()",
       "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L54"
+      "source_location": "L34"
     },
     {
       "id": "scripts_run_telegram_bots_sha256",
@@ -1334,7 +1646,7 @@
       "file_type": "code",
       "norm_label": "deliverresolutiontouserchat()",
       "source_file": "src/lib/telegram-service.ts",
-      "source_location": "L239"
+      "source_location": "L229"
     },
     {
       "id": "src_lib_telegram_service_dispatchescalationtotelegram",
@@ -1346,7 +1658,7 @@
       "file_type": "code",
       "norm_label": "dispatchescalationtotelegram()",
       "source_file": "src/lib/telegram-service.ts",
-      "source_location": "L150"
+      "source_location": "L140"
     },
     {
       "id": "src_lib_telegram_service_downloadtelegramfileasbase64",
@@ -1358,7 +1670,7 @@
       "file_type": "code",
       "norm_label": "downloadtelegramfileasbase64()",
       "source_file": "src/lib/telegram-service.ts",
-      "source_location": "L114"
+      "source_location": "L104"
     },
     {
       "id": "src_lib_telegram_service_getsimulatedtelegramqueue",
@@ -1370,7 +1682,7 @@
       "file_type": "code",
       "norm_label": "getsimulatedtelegramqueue()",
       "source_file": "src/lib/telegram-service.ts",
-      "source_location": "L360"
+      "source_location": "L350"
     },
     {
       "id": "src_lib_telegram_service_parsetelegramadmincommand",
@@ -1382,7 +1694,7 @@
       "file_type": "code",
       "norm_label": "parsetelegramadmincommand()",
       "source_file": "src/lib/telegram-service.ts",
-      "source_location": "L285"
+      "source_location": "L275"
     },
     {
       "id": "src_lib_telegram_service_sendtelegrammessage",
@@ -1406,7 +1718,7 @@
       "file_type": "code",
       "norm_label": "setruntimeadminchatid()",
       "source_file": "src/lib/telegram-service.ts",
-      "source_location": "L143"
+      "source_location": "L133"
     },
     {
       "id": "src_lib_vision_diagnostic_engine_analyzescreenshotorphoto",
@@ -1445,42 +1757,6 @@
       "source_location": "L14"
     },
     {
-      "id": "src_app_api_diagnostics_remediate_route_get",
-      "label": "GET()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 29,
-      "community_name": "remediate/route.ts",
-      "file_type": "code",
-      "norm_label": "get()",
-      "source_file": "src/app/api/diagnostics/remediate/route.ts",
-      "source_location": "L22"
-    },
-    {
-      "id": "src_app_api_diagnostics_remediate_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 29,
-      "community_name": "remediate/route.ts",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "src/app/api/diagnostics/remediate/route.ts",
-      "source_location": "L36"
-    },
-    {
-      "id": "src_app_api_diagnostics_remediate_route_sha256",
-      "label": "sha256()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 29,
-      "community_name": "remediate/route.ts",
-      "file_type": "code",
-      "norm_label": "sha256()",
-      "source_file": "src/app/api/diagnostics/remediate/route.ts",
-      "source_location": "L9"
-    },
-    {
       "id": "prisma_seed_main",
       "label": "main()",
       "_callable": true,
@@ -1503,282 +1779,6 @@
       "norm_label": "sha256()",
       "source_file": "prisma/seed.ts",
       "source_location": "L6"
-    },
-    {
-      "id": "src_app_api_media_route_generatevectorembedding",
-      "label": "generateVectorEmbedding()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 30,
-      "community_name": "media/route.ts",
-      "file_type": "code",
-      "norm_label": "generatevectorembedding()",
-      "source_file": "src/app/api/media/route.ts",
-      "source_location": "L10"
-    },
-    {
-      "id": "src_app_api_media_route_get",
-      "label": "GET()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 30,
-      "community_name": "media/route.ts",
-      "file_type": "code",
-      "norm_label": "get()",
-      "source_file": "src/app/api/media/route.ts",
-      "source_location": "L105"
-    },
-    {
-      "id": "src_app_api_media_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 30,
-      "community_name": "media/route.ts",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "src/app/api/media/route.ts",
-      "source_location": "L28"
-    },
-    {
-      "id": "src_app_api_media_route_sha256",
-      "label": "sha256()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 30,
-      "community_name": "media/route.ts",
-      "file_type": "code",
-      "norm_label": "sha256()",
-      "source_file": "src/app/api/media/route.ts",
-      "source_location": "L5"
-    },
-    {
-      "id": "src_app_api_ondc_services_route_get",
-      "label": "GET()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "services/route.ts",
-      "file_type": "code",
-      "norm_label": "get()",
-      "source_file": "src/app/api/ondc/services/route.ts",
-      "source_location": "L250"
-    },
-    {
-      "id": "src_app_api_ondc_services_route_parsesingleturnprompt",
-      "label": "parseSingleTurnPrompt()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "services/route.ts",
-      "file_type": "code",
-      "norm_label": "parsesingleturnprompt()",
-      "source_file": "src/app/api/ondc/services/route.ts",
-      "source_location": "L10"
-    },
-    {
-      "id": "src_app_api_ondc_services_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "services/route.ts",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "src/app/api/ondc/services/route.ts",
-      "source_location": "L59"
-    },
-    {
-      "id": "src_app_api_ondc_services_route_sha256",
-      "label": "sha256()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "services/route.ts",
-      "file_type": "code",
-      "norm_label": "sha256()",
-      "source_file": "src/app/api/ondc/services/route.ts",
-      "source_location": "L5"
-    },
-    {
-      "id": "src_app_api_approvals_route_get",
-      "label": "GET()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 32,
-      "community_name": "approvals/route.ts",
-      "file_type": "code",
-      "norm_label": "get()",
-      "source_file": "src/app/api/approvals/route.ts",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_app_api_approvals_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 32,
-      "community_name": "approvals/route.ts",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "src/app/api/approvals/route.ts",
-      "source_location": "L30"
-    },
-    {
-      "id": "src_app_api_approvals_route_sha256",
-      "label": "sha256()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 32,
-      "community_name": "approvals/route.ts",
-      "file_type": "code",
-      "norm_label": "sha256()",
-      "source_file": "src/app/api/approvals/route.ts",
-      "source_location": "L5"
-    },
-    {
-      "id": "src_app_api_settings_route_get",
-      "label": "GET()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 33,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "get()",
-      "source_file": "src/app/api/settings/route.ts",
-      "source_location": "L6"
-    },
-    {
-      "id": "src_app_api_settings_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 33,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "src/app/api/settings/route.ts",
-      "source_location": "L33"
-    },
-    {
-      "id": "src_app_api_verify_wipe_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 34,
-      "community_name": "verify-wipe/route.ts",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "src/app/api/verify-wipe/route.ts",
-      "source_location": "L11"
-    },
-    {
-      "id": "src_app_api_verify_wipe_route_sha256",
-      "label": "sha256()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 34,
-      "community_name": "verify-wipe/route.ts",
-      "file_type": "code",
-      "norm_label": "sha256()",
-      "source_file": "src/app/api/verify-wipe/route.ts",
-      "source_location": "L5"
-    },
-    {
-      "id": "src_app_api_diagnostics_keyboard_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "keyboard/route.ts",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "src/app/api/diagnostics/keyboard/route.ts",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_app_api_diagnostics_keyboard_route_sha256",
-      "label": "sha256()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "keyboard/route.ts",
-      "file_type": "code",
-      "norm_label": "sha256()",
-      "source_file": "src/app/api/diagnostics/keyboard/route.ts",
-      "source_location": "L5"
-    },
-    {
-      "id": "src_app_api_dispatch_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "dispatch/route.ts",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "src/app/api/dispatch/route.ts",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_app_api_dispatch_route_sha256",
-      "label": "sha256()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "dispatch/route.ts",
-      "file_type": "code",
-      "norm_label": "sha256()",
-      "source_file": "src/app/api/dispatch/route.ts",
-      "source_location": "L5"
-    },
-    {
-      "id": "src_app_api_intake_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "intake/route.ts",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "src/app/api/intake/route.ts",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_app_api_intake_route_sha256",
-      "label": "sha256()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "intake/route.ts",
-      "file_type": "code",
-      "norm_label": "sha256()",
-      "source_file": "src/app/api/intake/route.ts",
-      "source_location": "L5"
-    },
-    {
-      "id": "src_app_api_ondc_cancel_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 38,
-      "community_name": "cancel/route.ts",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "src/app/api/ondc/cancel/route.ts",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_app_api_ondc_cancel_route_sha256",
-      "label": "sha256()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 38,
-      "community_name": "cancel/route.ts",
-      "file_type": "code",
-      "norm_label": "sha256()",
-      "source_file": "src/app/api/ondc/cancel/route.ts",
-      "source_location": "L5"
     },
     {
       "id": "src_app_api_evaluate_route_post",
@@ -2539,17 +2539,6 @@
       "source_location": "L19"
     },
     {
-      "id": "ref_clsx",
-      "label": "clsx",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "react",
-      "file_type": "concept",
-      "norm_label": "clsx",
-      "source_file": "package.json",
-      "source_location": "L20"
-    },
-    {
       "id": "ref_lucide_react",
       "label": "lucide-react",
       "_origin": "ast",
@@ -2572,15 +2561,15 @@
       "source_location": "L23"
     },
     {
-      "id": "ref_tailwind_merge",
-      "label": "tailwind-merge",
+      "id": "src_app_api_approvals_route",
+      "label": "approvals/route.ts",
       "_origin": "ast",
-      "community": 0,
-      "community_name": "react",
-      "file_type": "concept",
-      "norm_label": "tailwind-merge",
-      "source_file": "package.json",
-      "source_location": "L26"
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "approvals/route.ts",
+      "source_file": "src/app/api/approvals/route.ts",
+      "source_location": "L1"
     },
     {
       "id": "src_app_api_devices_route",
@@ -2605,6 +2594,61 @@
       "source_location": "L4"
     },
     {
+      "id": "src_app_api_diagnostics_keyboard_route",
+      "label": "keyboard/route.ts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "keyboard/route.ts",
+      "source_file": "src/app/api/diagnostics/keyboard/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_api_diagnostics_remediate_route",
+      "label": "remediate/route.ts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "remediate/route.ts",
+      "source_file": "src/app/api/diagnostics/remediate/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_api_diagnostics_remediate_route_execasync",
+      "label": "execAsync",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "execasync",
+      "source_file": "src/app/api/diagnostics/remediate/route.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "src_app_api_dispatch_route",
+      "label": "dispatch/route.ts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "dispatch/route.ts",
+      "source_file": "src/app/api/dispatch/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_api_intake_route",
+      "label": "intake/route.ts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "intake/route.ts",
+      "source_file": "src/app/api/intake/route.ts",
+      "source_location": "L1"
+    },
+    {
       "id": "src_app_api_learning_route",
       "label": "learning/route.ts",
       "_origin": "ast",
@@ -2627,6 +2671,28 @@
       "source_location": "L4"
     },
     {
+      "id": "src_app_api_media_route",
+      "label": "media/route.ts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "media/route.ts",
+      "source_file": "src/app/api/media/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_api_ondc_cancel_route",
+      "label": "cancel/route.ts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "cancel/route.ts",
+      "source_file": "src/app/api/ondc/cancel/route.ts",
+      "source_location": "L1"
+    },
+    {
       "id": "src_app_api_ondc_profile_route",
       "label": "profile/route.ts",
       "_origin": "ast",
@@ -2635,6 +2701,17 @@
       "file_type": "code",
       "norm_label": "profile/route.ts",
       "source_file": "src/app/api/ondc/profile/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_api_ondc_services_route",
+      "label": "services/route.ts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "services/route.ts",
+      "source_file": "src/app/api/ondc/services/route.ts",
       "source_location": "L1"
     },
     {
@@ -2669,6 +2746,50 @@
       "norm_label": "dynamic",
       "source_file": "src/app/api/passport/route.ts",
       "source_location": "L4"
+    },
+    {
+      "id": "src_app_api_settings_route",
+      "label": "settings/route.ts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "settings/route.ts",
+      "source_file": "src/app/api/settings/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_api_settings_route_dynamic",
+      "label": "dynamic",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "dynamic",
+      "source_file": "src/app/api/settings/route.ts",
+      "source_location": "L4"
+    },
+    {
+      "id": "src_app_api_verify_wipe_route",
+      "label": "verify-wipe/route.ts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "verify-wipe/route.ts",
+      "source_file": "src/app/api/verify-wipe/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_api_verify_wipe_route_dynamic",
+      "label": "dynamic",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "prisma.ts",
+      "file_type": "code",
+      "norm_label": "dynamic",
+      "source_file": "src/app/api/verify-wipe/route.ts",
+      "source_location": "L9"
     },
     {
       "id": "src_app_track_page",
@@ -3246,28 +3367,6 @@
       "source_location": "L1"
     },
     {
-      "id": "scripts_run_telegram_bots_after_booking_keyboard",
-      "label": "AFTER_BOOKING_KEYBOARD",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "telegram-service.ts",
-      "file_type": "code",
-      "norm_label": "after_booking_keyboard",
-      "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L42"
-    },
-    {
-      "id": "scripts_run_telegram_bots_default_keyboard",
-      "label": "DEFAULT_KEYBOARD",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "telegram-service.ts",
-      "file_type": "code",
-      "norm_label": "default_keyboard",
-      "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L32"
-    },
-    {
       "id": "scripts_verify_backup_telegram_bot",
       "label": "verify-backup-telegram-bot.ts",
       "_origin": "ast",
@@ -3408,7 +3507,7 @@
       "file_type": "code",
       "norm_label": "default_admin_chat_id",
       "source_file": "src/lib/telegram-service.ts",
-      "source_location": "L140"
+      "source_location": "L130"
     },
     {
       "id": "src_lib_telegram_service_telegram_admin_bot_token",
@@ -3656,28 +3755,6 @@
       "source_location": "L1"
     },
     {
-      "id": "src_app_api_diagnostics_remediate_route",
-      "label": "remediate/route.ts",
-      "_origin": "ast",
-      "community": 29,
-      "community_name": "remediate/route.ts",
-      "file_type": "code",
-      "norm_label": "remediate/route.ts",
-      "source_file": "src/app/api/diagnostics/remediate/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_api_diagnostics_remediate_route_execasync",
-      "label": "execAsync",
-      "_origin": "ast",
-      "community": 29,
-      "community_name": "remediate/route.ts",
-      "file_type": "code",
-      "norm_label": "execasync",
-      "source_file": "src/app/api/diagnostics/remediate/route.ts",
-      "source_location": "L7"
-    },
-    {
       "id": "package",
       "label": "package.json",
       "_origin": "ast",
@@ -3854,6 +3931,17 @@
       "source_location": "L32"
     },
     {
+      "id": "ref_clsx",
+      "label": "clsx",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "clsx",
+      "source_file": "package.json",
+      "source_location": "L20"
+    },
+    {
       "id": "ref_langchain_core",
       "label": "@langchain/core",
       "_origin": "ast",
@@ -3942,6 +4030,17 @@
       "source_location": "L25"
     },
     {
+      "id": "ref_tailwind_merge",
+      "label": "tailwind-merge",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "tailwind-merge",
+      "source_file": "package.json",
+      "source_location": "L26"
+    },
+    {
       "id": "ref_tailwindcss",
       "label": "tailwindcss",
       "_origin": "ast",
@@ -4017,127 +4116,6 @@
       "norm_label": "typescript",
       "source_file": "package.json",
       "source_location": "L38"
-    },
-    {
-      "id": "src_app_api_media_route",
-      "label": "media/route.ts",
-      "_origin": "ast",
-      "community": 30,
-      "community_name": "media/route.ts",
-      "file_type": "code",
-      "norm_label": "media/route.ts",
-      "source_file": "src/app/api/media/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_api_ondc_services_route",
-      "label": "services/route.ts",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "services/route.ts",
-      "file_type": "code",
-      "norm_label": "services/route.ts",
-      "source_file": "src/app/api/ondc/services/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_api_approvals_route",
-      "label": "approvals/route.ts",
-      "_origin": "ast",
-      "community": 32,
-      "community_name": "approvals/route.ts",
-      "file_type": "code",
-      "norm_label": "approvals/route.ts",
-      "source_file": "src/app/api/approvals/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_api_settings_route",
-      "label": "settings/route.ts",
-      "_origin": "ast",
-      "community": 33,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "settings/route.ts",
-      "source_file": "src/app/api/settings/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_api_settings_route_dynamic",
-      "label": "dynamic",
-      "_origin": "ast",
-      "community": 33,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "dynamic",
-      "source_file": "src/app/api/settings/route.ts",
-      "source_location": "L4"
-    },
-    {
-      "id": "src_app_api_verify_wipe_route",
-      "label": "verify-wipe/route.ts",
-      "_origin": "ast",
-      "community": 34,
-      "community_name": "verify-wipe/route.ts",
-      "file_type": "code",
-      "norm_label": "verify-wipe/route.ts",
-      "source_file": "src/app/api/verify-wipe/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_api_verify_wipe_route_dynamic",
-      "label": "dynamic",
-      "_origin": "ast",
-      "community": 34,
-      "community_name": "verify-wipe/route.ts",
-      "file_type": "code",
-      "norm_label": "dynamic",
-      "source_file": "src/app/api/verify-wipe/route.ts",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_app_api_diagnostics_keyboard_route",
-      "label": "keyboard/route.ts",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "keyboard/route.ts",
-      "file_type": "code",
-      "norm_label": "keyboard/route.ts",
-      "source_file": "src/app/api/diagnostics/keyboard/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_api_dispatch_route",
-      "label": "dispatch/route.ts",
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "dispatch/route.ts",
-      "file_type": "code",
-      "norm_label": "dispatch/route.ts",
-      "source_file": "src/app/api/dispatch/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_api_intake_route",
-      "label": "intake/route.ts",
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "intake/route.ts",
-      "file_type": "code",
-      "norm_label": "intake/route.ts",
-      "source_file": "src/app/api/intake/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_api_ondc_cancel_route",
-      "label": "cancel/route.ts",
-      "_origin": "ast",
-      "community": 38,
-      "community_name": "cancel/route.ts",
-      "file_type": "code",
-      "norm_label": "cancel/route.ts",
-      "source_file": "src/app/api/ondc/cancel/route.ts",
-      "source_location": "L1"
     },
     {
       "id": "src_app_api_evaluate_route",
@@ -5027,7 +5005,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L634",
+      "source_location": "L478",
       "weight": 1.0
     },
     {
@@ -5039,7 +5017,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L651",
+      "source_location": "L495",
       "weight": 1.0
     },
     {
@@ -5051,7 +5029,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L688",
+      "source_location": "L532",
       "weight": 1.0
     },
     {
@@ -5063,7 +5041,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L717",
+      "source_location": "L561",
       "weight": 1.0
     },
     {
@@ -5075,67 +5053,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L724",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_run_telegram_bots_pollbackupbot",
-      "target": "src_lib_telegram_service_sendtelegrammessage",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L104",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_run_telegram_bots_pollbackupbot",
-      "target": "src_lib_telegram_service_downloadtelegramfileasbase64",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L110",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_run_telegram_bots_pollbackupbot",
-      "target": "src_lib_vision_diagnostic_engine_analyzescreenshotorphoto",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L115",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_run_telegram_bots_pollbackupbot",
-      "target": "scripts_run_telegram_bots_sha256",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L306",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_run_telegram_bots_pollbackupbot",
-      "target": "src_lib_telegram_service_dispatchescalationtotelegram",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L393",
+      "source_location": "L568",
       "weight": 1.0
     },
     {
@@ -5147,7 +5065,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L423",
+      "source_location": "L144",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_run_telegram_bots_pollbackupbot",
+      "target": "src_lib_telegram_service_dispatchescalationtotelegram",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/run-telegram-bots.ts",
+      "source_location": "L191",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_run_telegram_bots_pollbackupbot",
+      "target": "scripts_run_telegram_bots_sha256",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/run-telegram-bots.ts",
+      "source_location": "L252",
       "weight": 1.0
     },
     {
@@ -5159,7 +5101,43 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L508",
+      "source_location": "L411",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_run_telegram_bots_pollbackupbot",
+      "target": "src_lib_telegram_service_sendtelegrammessage",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/run-telegram-bots.ts",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_run_telegram_bots_pollbackupbot",
+      "target": "src_lib_telegram_service_downloadtelegramfileasbase64",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/run-telegram-bots.ts",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_run_telegram_bots_pollbackupbot",
+      "target": "src_lib_vision_diagnostic_engine_analyzescreenshotorphoto",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/run-telegram-bots.ts",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -6143,7 +6121,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/lib/hardware-ai-agent.ts",
-      "source_location": "L1077",
+      "source_location": "L996",
       "weight": 1.0
     },
     {
@@ -6311,7 +6289,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/lib/telegram-service.ts",
-      "source_location": "L267",
+      "source_location": "L257",
       "weight": 1.0
     },
     {
@@ -6323,7 +6301,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/lib/telegram-service.ts",
-      "source_location": "L208",
+      "source_location": "L198",
       "weight": 1.0
     },
     {
@@ -11025,35 +11003,13 @@
     },
     {
       "source": "scripts_run_telegram_bots",
-      "target": "scripts_run_telegram_bots_default_keyboard",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L32",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_run_telegram_bots",
-      "target": "scripts_run_telegram_bots_after_booking_keyboard",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L42",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_run_telegram_bots",
       "target": "scripts_run_telegram_bots_pollbackupbot",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L54",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -11064,7 +11020,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/run-telegram-bots.ts",
-      "source_location": "L596",
+      "source_location": "L448",
       "weight": 1.0
     },
     {
@@ -12967,7 +12923,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/telegram-service.ts",
-      "source_location": "L114",
+      "source_location": "L104",
       "weight": 1.0
     },
     {
@@ -12989,7 +12945,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/telegram-service.ts",
-      "source_location": "L140",
+      "source_location": "L130",
       "weight": 1.0
     },
     {
@@ -13000,7 +12956,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/telegram-service.ts",
-      "source_location": "L143",
+      "source_location": "L133",
       "weight": 1.0
     },
     {
@@ -13011,7 +12967,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/telegram-service.ts",
-      "source_location": "L150",
+      "source_location": "L140",
       "weight": 1.0
     },
     {
@@ -13022,7 +12978,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/telegram-service.ts",
-      "source_location": "L239",
+      "source_location": "L229",
       "weight": 1.0
     },
     {
@@ -13044,7 +13000,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/telegram-service.ts",
-      "source_location": "L285",
+      "source_location": "L275",
       "weight": 1.0
     },
     {
@@ -13066,7 +13022,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/telegram-service.ts",
-      "source_location": "L360",
+      "source_location": "L350",
       "weight": 1.0
     },
     {

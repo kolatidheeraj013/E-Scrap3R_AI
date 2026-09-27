@@ -38,7 +38,9 @@ import {
   Leaf,
   Compass,
   XCircle,
-  Gamepad2
+  Gamepad2,
+  ChevronDown,
+  ChevronUp
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -194,6 +196,16 @@ interface ActionProofDetails {
   // Simple Suggestion
   suggestions?: string[];
   quickCheckUpUrl?: string;
+  orderTrigger?: {
+    technician: string;
+    serviceType: string;
+    feeUSD: number;
+    scheduledSlot: string;
+    provider: string;
+    actionPrompt: string;
+  };
+  defectSeverity?: "minor" | "moderate" | "critical" | "none";
+  recommendedAction?: string;
 }
 
 interface ChatMessage {
@@ -462,6 +474,7 @@ export default function DiagnosticAssistantPage() {
   const [reasoningModel, setReasoningModel] = useState("deepseek/deepseek-r1");
   const [reasoningModalOpen, setReasoningModalOpen] = useState(false);
   const [continuousLoopMode, setContinuousLoopMode] = useState(true);
+  const [expandedCircularity, setExpandedCircularity] = useState<Record<string, boolean>>({});
   const fileInputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -2130,10 +2143,73 @@ export default function DiagnosticAssistantPage() {
 
                   {/* Recommended Action After Diagnosis Based on Condition */}
                   {msg.actionDetails && (
-                    <div className="mt-4 pt-3 border-t border-slate-800/80 space-y-2">
+                    <div className="mt-4 pt-3 border-t border-slate-800/80 space-y-3">
                       <div className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1">
                         <Sparkles className="w-3 h-3 text-cyan-400" /> Triage Assessment & Next Steps:
                       </div>
+
+                      {/* 0. DIRECT ONDC ORDER TRIGGER BANNER */}
+                      {msg.actionDetails?.orderTrigger && (
+                        <div className="bg-gradient-to-r from-amber-950/80 via-slate-900 to-amber-950/60 border-2 border-amber-500/60 rounded-xl p-3.5 shadow-xl space-y-2.5 animate-in fade-in">
+                          <div className="flex flex-wrap items-center justify-between gap-2">
+                            <div className="flex items-center gap-2.5">
+                              <div className="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-500/50 flex items-center justify-center text-amber-400 shrink-0">
+                                <Wrench className="w-4 h-4" />
+                              </div>
+                              <div>
+                                <div className="text-xs font-bold text-white flex items-center gap-1.5">
+                                  Primary Action: Doorstep Hardware Repair
+                                  <Badge variant="amber" className="text-[9px] px-1.5 py-0 font-mono">ONDC Network</Badge>
+                                </div>
+                                <div className="text-[11px] text-amber-200/90">
+                                  Specialist: {msg.actionDetails.orderTrigger.technician} • Fee: ${msg.actionDetails.orderTrigger.feeUSD.toFixed(2)} USD
+                                </div>
+                              </div>
+                            </div>
+                            <Badge variant="amber" className="text-[10px] font-mono">
+                              {msg.actionDetails.orderTrigger.scheduledSlot}
+                            </Badge>
+                          </div>
+
+                          <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-amber-500/20">
+                            <Button
+                              size="sm"
+                              disabled={executing}
+                              onClick={() => {
+                                if (msg.actionDetails?.orderTrigger?.actionPrompt) {
+                                  executeAction(msg.actionDetails.orderTrigger.actionPrompt);
+                                }
+                              }}
+                              className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs h-8 px-4 gap-2 shadow-lg shadow-amber-950/50 cursor-pointer"
+                            >
+                              <Zap className="w-4 h-4 fill-current" /> Trigger Doorstep Repair Order (ONDC)
+                            </Button>
+                            <span className="text-[11px] text-slate-400">Zero form-filling • Live GPS tracking</span>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* 0B. QUICK SUGGESTIONS CHIPS */}
+                      {msg.actionDetails?.suggestions && msg.actionDetails.suggestions.length > 0 && (
+                        <div className="space-y-1.5 pt-1">
+                          <div className="text-[11px] font-mono text-cyan-400 font-bold flex items-center gap-1.5">
+                            <Sparkles className="w-3.5 h-3.5" /> Quick Troubleshooting & Actions:
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            {msg.actionDetails.suggestions.map((sug: string, sIdx: number) => (
+                              <button
+                                key={sIdx}
+                                disabled={executing}
+                                onClick={() => executeAction(sug)}
+                                className="bg-slate-900/90 hover:bg-cyan-950 hover:border-cyan-500/50 text-slate-200 hover:text-cyan-300 text-xs px-3 py-1.5 rounded-lg border border-slate-800 transition-all flex items-center gap-1.5 text-left shadow-sm cursor-pointer"
+                              >
+                                <ArrowRight className="w-3 h-3 text-cyan-400 shrink-0" />
+                                <span>{sug}</span>
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
 
                       {/* 1. TESTING REQUIRED BANNER */}
                       {msg.actionDetails?.triageVerdict === "testing_required" && (
@@ -2186,27 +2262,36 @@ export default function DiagnosticAssistantPage() {
                               </div>
                               <div>
                                 <span className="text-xs sm:text-sm font-extrabold text-white flex items-center gap-1.5">
-                                  Circularity Pathways <span className="text-purple-400 font-mono text-xs">(3 Viable Choices)</span>
+                                  Circularity Assessment & Options
+                                  {msg.actionDetails.triageVerdict === "repair" && (
+                                    <span className="text-amber-400 font-mono text-xs">(Primary: 1. Repair Recommended)</span>
+                                  )}
                                 </span>
                                 <span className="text-[10px] text-slate-400 block">
-                                  Verified circular options for your PC: Doorstep Repair, Parts Salvage & Reuse, or Certified Recycling
+                                  {msg.actionDetails.triageVerdict === "repair"
+                                    ? "Doorstep technician repair is strongly recommended. Device has high residual value (~98%)."
+                                    : "Verified circular options for your PC: Doorstep Repair, Parts Salvage & Reuse, or Certified Recycling"}
                                 </span>
                               </div>
                             </div>
                             <div className="flex items-center gap-1 font-mono text-[9px]">
-                              <span className="px-2 py-0.5 rounded bg-amber-950/60 border border-amber-500/30 text-amber-300 font-semibold">1. REPAIR</span>
-                              <span className="px-2 py-0.5 rounded bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 font-semibold">2. REUSE</span>
-                              <span className="px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 font-semibold">3. RECYCLE</span>
+                              <span className="px-2 py-0.5 rounded bg-amber-950/60 border border-amber-500/30 text-amber-300 font-semibold">1. REPAIR (OPTIMAL)</span>
+                              {Boolean(expandedCircularity[msg.id] || msg.actionDetails.triageVerdict !== "repair") && (
+                                <>
+                                  <span className="px-2 py-0.5 rounded bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 font-semibold">2. REUSE</span>
+                                  <span className="px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 font-semibold">3. RECYCLE</span>
+                                </>
+                              )}
                             </div>
                           </div>
 
-                          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                          <div className={`grid grid-cols-1 ${(!expandedCircularity[msg.id] && msg.actionDetails.triageVerdict === "repair") ? "max-w-xl mx-auto" : "md:grid-cols-3"} gap-3`}>
                             {/* PATHWAY 1: REPAIR */}
-                            <div className="bg-gradient-to-b from-amber-950/30 via-slate-900/90 to-slate-900/90 p-3.5 rounded-xl border border-amber-500/40 space-y-2.5 flex flex-col justify-between shadow-lg">
+                            <div className="bg-gradient-to-b from-amber-950/30 via-slate-900/90 to-slate-900/90 p-3.5 rounded-xl border-2 border-amber-500/50 space-y-2.5 flex flex-col justify-between shadow-lg">
                               <div className="space-y-1.5">
                                 <div className="flex items-center justify-between">
                                   <span className="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1">
-                                    <Wrench className="w-3 h-3" /> 1. Repair Pathway
+                                    <Wrench className="w-3 h-3" /> 1. Repair Pathway (Recommended)
                                   </span>
                                   <Badge variant="amber" className="text-[9px] px-1.5 py-0 font-mono">
                                     ONDC Network
@@ -2232,70 +2317,92 @@ export default function DiagnosticAssistantPage() {
                               </Button>
                             </div>
 
-                            {/* PATHWAY 2: REUSE */}
-                            <div className="bg-gradient-to-b from-cyan-950/30 via-slate-900/90 to-slate-900/90 p-3.5 rounded-xl border border-cyan-500/40 space-y-2.5 flex flex-col justify-between shadow-lg">
-                              <div className="space-y-1.5">
-                                <div className="flex items-center justify-between">
-                                  <span className="text-[10px] font-mono font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1">
-                                    <Layers className="w-3 h-3" /> 2. Reuse & Salvage
-                                  </span>
-                                  <Badge variant="cyan" className="text-[9px] px-1.5 py-0 font-mono">
-                                    Resale Value
-                                  </Badge>
-                                </div>
-                                <div className="text-xs font-bold text-white">
-                                  Salvage Value: <span className="text-emerald-400 font-mono">{msg.actionDetails.finalActions.reuse?.totalResaleValuationUSD || "$185 - $235"}</span>
-                                </div>
-                                <div className="text-[10px] text-slate-300 space-y-1">
-                                  <div>• <strong>24GB DDR4 RAM:</strong> Resale $45-$55</div>
-                                  <div>• <strong>Samsung NVMe:</strong> Resale $38-$48</div>
-                                  <div>• <strong>15.6" FHD Screen:</strong> Resale $65-$80</div>
-                                </div>
-                                <div className="text-[10px] text-cyan-300/90 pt-0.5">
-                                  DIY: Turn into Home NAS Node or Jellyfin Media Server
-                                </div>
-                              </div>
+                            {/* Show PATHWAY 2 & 3 if expanded or if not a pure repair verdict */}
+                            {Boolean(expandedCircularity[msg.id] || msg.actionDetails.triageVerdict !== "repair") && (
+                              <>
+                                {/* PATHWAY 2: REUSE */}
+                                <div className="bg-gradient-to-b from-cyan-950/30 via-slate-900/90 to-slate-900/90 p-3.5 rounded-xl border border-cyan-500/40 space-y-2.5 flex flex-col justify-between shadow-lg">
+                                  <div className="space-y-1.5">
+                                    <div className="flex items-center justify-between">
+                                      <span className="text-[10px] font-mono font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1">
+                                        <Layers className="w-3 h-3" /> 2. Reuse & Salvage
+                                      </span>
+                                      <Badge variant="cyan" className="text-[9px] px-1.5 py-0 font-mono">
+                                        Resale Value
+                                      </Badge>
+                                    </div>
+                                    <div className="text-xs font-bold text-white">
+                                      Salvage Value: <span className="text-emerald-400 font-mono">{msg.actionDetails.finalActions.reuse?.totalResaleValuationUSD || "$185 - $235"}</span>
+                                    </div>
+                                    <div className="text-[10px] text-slate-300 space-y-1">
+                                      <div>• <strong>24GB DDR4 RAM:</strong> Resale $45-$55</div>
+                                      <div>• <strong>Samsung NVMe:</strong> Resale $38-$48</div>
+                                      <div>• <strong>15.6" FHD Screen:</strong> Resale $65-$80</div>
+                                    </div>
+                                    <div className="text-[10px] text-cyan-300/90 pt-0.5">
+                                      DIY: Turn into Home NAS Node or Jellyfin Media Server
+                                    </div>
+                                  </div>
 
-                              <Button
-                                size="sm"
-                                onClick={() => executeAction("Repurpose working components for home server or NAS node")}
-                                className="w-full bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold text-[11px] h-8 gap-1.5 shadow-md shadow-cyan-900/30"
-                              >
-                                <Layers className="w-3.5 h-3.5" /> View Resale Prices & Guides
-                              </Button>
-                            </div>
+                                  <Button
+                                    size="sm"
+                                    onClick={() => executeAction("Repurpose working components for home server or NAS node")}
+                                    className="w-full bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold text-[11px] h-8 gap-1.5 shadow-md shadow-cyan-900/30"
+                                  >
+                                    <Layers className="w-3.5 h-3.5" /> View Resale Prices & Guides
+                                  </Button>
+                                </div>
 
-                            {/* PATHWAY 3: RECYCLE */}
-                            <div className="bg-gradient-to-b from-emerald-950/30 via-slate-900/90 to-slate-900/90 p-3.5 rounded-xl border border-emerald-500/40 space-y-2.5 flex flex-col justify-between shadow-lg">
-                              <div className="space-y-1.5">
-                                <div className="flex items-center justify-between">
-                                  <span className="text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1">
-                                    <Recycle className="w-3 h-3" /> 3. Recycle E-Waste
-                                  </span>
-                                  <Badge variant="emerald" className="text-[9px] px-1.5 py-0 font-mono">
-                                    Zero-Landfill
-                                  </Badge>
-                                </div>
-                                <div className="text-xs font-bold text-white">
-                                  Instant Credit: <span className="text-emerald-300 font-mono">+${msg.actionDetails.finalActions.recycle?.scrapCreditEstimateUSD?.toFixed(2) || "18.50"} USD</span>
-                                </div>
-                                <p className="text-[10px] text-slate-300 leading-relaxed">
-                                  Certified zero-landfill collection by EcoRecycle India (R2v3 & ISO 14001). Neutralizes toxic metals with official destruction certificate.
-                                </p>
-                                <div className="text-[10px] text-emerald-400/90 font-mono pt-0.5">
-                                  ✓ Doorstep Pickup & UPI Scrap Cash Payout
-                                </div>
-                              </div>
+                                {/* PATHWAY 3: RECYCLE */}
+                                <div className="bg-gradient-to-b from-slate-900/90 via-slate-900/90 to-slate-900/90 p-3.5 rounded-xl border border-slate-700/60 space-y-2.5 flex flex-col justify-between shadow-lg">
+                                  <div className="space-y-1.5">
+                                    <div className="flex items-center justify-between">
+                                      <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
+                                        <Recycle className="w-3 h-3" /> 3. Recycle E-Waste
+                                      </span>
+                                      <Badge variant="secondary" className="text-[9px] px-1.5 py-0 font-mono text-amber-300 border border-amber-500/40 bg-amber-950/60">
+                                        Not Recommended
+                                      </Badge>
+                                    </div>
+                                    <div className="text-xs font-bold text-slate-300">
+                                      Instant Credit: <span className="text-emerald-300 font-mono">+${msg.actionDetails.finalActions.recycle?.scrapCreditEstimateUSD?.toFixed(2) || "18.50"} USD</span>
+                                    </div>
+                                    <p className="text-[10px] text-amber-200/80 leading-relaxed bg-amber-950/40 border border-amber-500/20 p-2 rounded">
+                                      ⚠️ Not recommended for minor key defects. Machine has 98% residual value; recycling would needlessly scrap working hardware.
+                                    </p>
+                                    <div className="text-[10px] text-slate-400 font-mono pt-0.5">
+                                      ✓ Reserved for catastrophic non-repairable failures
+                                    </div>
+                                  </div>
 
-                              <Button
-                                size="sm"
-                                onClick={() => executeAction("Schedule certified zero-landfill e-waste pickup with scrap credit")}
-                                className="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-[11px] h-8 gap-1.5 shadow-md shadow-emerald-900/30"
-                              >
-                                <Recycle className="w-3.5 h-3.5" /> Book E-Waste Pickup (+$18.50)
-                              </Button>
-                            </div>
+                                  <Button
+                                    size="sm"
+                                    onClick={() => executeAction("Schedule certified zero-landfill e-waste pickup with scrap credit")}
+                                    className="w-full bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-[11px] h-8 gap-1.5"
+                                  >
+                                    <Recycle className="w-3.5 h-3.5" /> Book E-Waste Pickup (+$18.50)
+                                  </Button>
+                                </div>
+                              </>
+                            )}
                           </div>
+
+                          {/* Toggle for alternative circularity options when repair is primary */}
+                          {msg.actionDetails.triageVerdict === "repair" && (
+                            <div className="pt-2 border-t border-purple-500/20 flex items-center justify-between text-xs">
+                              <button
+                                type="button"
+                                onClick={() => setExpandedCircularity(prev => ({ ...prev, [msg.id]: !prev[msg.id] }))}
+                                className="text-purple-400 hover:text-purple-300 font-medium flex items-center gap-1.5 transition-colors cursor-pointer"
+                              >
+                                <span>{expandedCircularity[msg.id] ? "Hide alternative pathways" : "Show alternative circular pathways (Reuse & Salvage / Recycle)"}</span>
+                                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${expandedCircularity[msg.id] ? "rotate-180" : ""}`} />
+                              </button>
+                              <span className="text-[10px] text-slate-500 hidden sm:inline">
+                                Device has high residual value • Repair prioritized
+                              </span>
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
@@ -2356,88 +2463,46 @@ export default function DiagnosticAssistantPage() {
           <Zap className="w-3 h-3 text-cyan-400" /> Quick Actions:
         </span>
         <button
-          onClick={() => executeAction("skip testing, go straight to repair booking")}
-          disabled={executing}
-          className="shrink-0 bg-amber-950/60 hover:bg-amber-900/60 text-amber-300 hover:text-white px-3 py-1.5 rounded-full border border-amber-500/30 transition-colors flex items-center gap-1.5 font-semibold"
-        >
-          🛵 Skip Testing → Book Repair
-        </button>
-        <button
           onClick={() => executeAction("keyboard buttons not working, start keyboard reflex test")}
           disabled={executing}
-          className="shrink-0 bg-purple-950/60 hover:bg-purple-900/60 text-purple-300 hover:text-white px-3 py-1.5 rounded-full border border-purple-500/30 transition-colors flex items-center gap-1.5 font-semibold"
+          className="shrink-0 bg-purple-950/60 hover:bg-purple-900/60 text-purple-300 hover:text-white px-3 py-1.5 rounded-full border border-purple-500/30 transition-colors flex items-center gap-1.5 font-semibold cursor-pointer"
         >
-          🎮 Keyboard Reflex Game
+          🎮 Keyboard Reflex Test
         </button>
         <button
-          onClick={() => executeAction("any tools are working")}
+          onClick={() => executeAction("skip testing, go straight to repair booking")}
           disabled={executing}
-          className="shrink-0 bg-cyan-950/60 hover:bg-cyan-900/60 text-cyan-300 hover:text-white px-3 py-1.5 rounded-full border border-cyan-500/30 transition-colors flex items-center gap-1.5 font-semibold"
+          className="shrink-0 bg-amber-950/60 hover:bg-amber-900/60 text-amber-300 hover:text-white px-3 py-1.5 rounded-full border border-amber-500/30 transition-colors flex items-center gap-1.5 font-semibold cursor-pointer"
         >
-          🔬 Tools Activation (14 Probes)
-        </button>
-        <button
-          onClick={() => executeAction("simulate hardware defect across all probes, pc real has trouble")}
-          disabled={executing}
-          className="shrink-0 bg-red-950/60 hover:bg-red-900/60 text-red-300 hover:text-white px-3 py-1.5 rounded-full border border-red-500/40 transition-colors flex items-center gap-1.5 font-semibold"
-        >
-          🚨 Simulate Real Trouble (Repair • Reuse • Recycle)
-        </button>
-        <button
-          onClick={() => executeAction("I have an unfamiliar hardware fault out of the tool handling, please notify admin bot for help")}
-          disabled={executing}
-          className="shrink-0 bg-purple-950/60 hover:bg-purple-900/60 text-purple-300 hover:text-white px-3 py-1.5 rounded-full border border-purple-500/40 transition-colors flex items-center gap-1.5 font-semibold"
-        >
-          🆘 Out-of-Tool Error (Alert Admin Bot @AHackBattle013bot)
+          🛵 Book Doorstep Tech (ONDC)
         </button>
         <button
           onClick={() => executeAction("Scan and diagnose my PC hardware")}
           disabled={executing}
-          className="shrink-0 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white px-3 py-1.5 rounded-full border border-slate-800 transition-colors flex items-center gap-1.5"
+          className="shrink-0 bg-cyan-950/60 hover:bg-cyan-900/60 text-cyan-300 hover:text-white px-3 py-1.5 rounded-full border border-cyan-500/30 transition-colors flex items-center gap-1.5 font-semibold cursor-pointer"
         >
-          ⚡ Scan Hardware
+          ⚡ Scan Hardware Telemetry
         </button>
         <button
           onClick={() => executeAction("Fix and speed up my system")}
           disabled={executing}
-          className="shrink-0 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white px-3 py-1.5 rounded-full border border-slate-800 transition-colors flex items-center gap-1.5"
+          className="shrink-0 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white px-3 py-1.5 rounded-full border border-slate-800 transition-colors flex items-center gap-1.5 font-semibold cursor-pointer"
         >
-          🛠️ Fix & Speed Up
-        </button>
-        <button
-          onClick={() => executeAction("Book a doorstep technician for tomorrow 10am")}
-          disabled={executing}
-          className="shrink-0 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white px-3 py-1.5 rounded-full border border-slate-800 transition-colors flex items-center gap-1.5"
-        >
-          🛵 Book Doorstep Tech
-        </button>
-        <button
-          onClick={() => executeAction("I have an unfamiliar kernel error 0x800F0922, please escalate to admin")}
-          disabled={executing}
-          className="shrink-0 bg-purple-950/60 hover:bg-purple-900/60 text-purple-300 hover:text-white px-3 py-1.5 rounded-full border border-purple-500/30 transition-colors flex items-center gap-1.5"
-        >
-          👤 Escalate to Admin
+          🛠️ Fix & Optimize System
         </button>
         <button
           onClick={() => setPhotoModalOpen(true)}
           disabled={executing}
-          className="shrink-0 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white px-3 py-1.5 rounded-full border border-slate-800 transition-colors flex items-center gap-1.5"
+          className="shrink-0 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white px-3 py-1.5 rounded-full border border-slate-800 transition-colors flex items-center gap-1.5 font-semibold cursor-pointer"
         >
-          📸 Analyze Screen / BSOD
+          📸 Analyze Screen / Photo
         </button>
         <button
-          onClick={() => executeAction("The keys on my keyboard are not working, please test them")}
+          onClick={() => executeAction("I have an unfamiliar hardware fault, please escalate to lead admin")}
           disabled={executing}
-          className="shrink-0 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white px-3 py-1.5 rounded-full border border-slate-800 transition-colors flex items-center gap-1.5"
+          className="shrink-0 bg-purple-950/60 hover:bg-purple-900/60 text-purple-300 hover:text-white px-3 py-1.5 rounded-full border border-purple-500/30 transition-colors flex items-center gap-1.5 font-semibold cursor-pointer"
         >
-          ⌨️ Test Keyboard
-        </button>
-        <button
-          onClick={() => executeAction("Flush DNS and optimize network")}
-          disabled={executing}
-          className="shrink-0 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white px-3 py-1.5 rounded-full border border-slate-800 transition-colors flex items-center gap-1.5"
-        >
-          📶 Flush DNS
+          👤 Escalate to Admin
         </button>
       </div>
 

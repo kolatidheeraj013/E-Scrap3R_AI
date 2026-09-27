@@ -51,18 +51,24 @@ export async function sendTelegramMessage(
   token: string,
   chatId: string | number,
   text: string,
-  parseMode: string = "Markdown"
+  parseMode: string = "Markdown",
+  replyMarkup?: any
 ): Promise<{ success: boolean; messageId?: string; error?: string }> {
   try {
     const url = `https://api.telegram.org/bot${token}/sendMessage`;
+    const payload: any = {
+      chat_id: chatId,
+      text,
+      parse_mode: parseMode,
+    };
+    if (replyMarkup) {
+      payload.reply_markup = replyMarkup;
+    }
+
     const res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text,
-        parse_mode: parseMode,
-      }),
+      body: JSON.stringify(payload),
     });
 
     if (res.ok) {
@@ -74,13 +80,17 @@ export async function sendTelegramMessage(
       // Fallback: If Markdown entity parsing failed, retry immediately as plain text
       if (parseMode) {
         try {
+          const retryPayload: any = {
+            chat_id: chatId,
+            text,
+          };
+          if (replyMarkup) {
+            retryPayload.reply_markup = replyMarkup;
+          }
           const retryRes = await fetch(url, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              chat_id: chatId,
-              text,
-            }),
+            body: JSON.stringify(retryPayload),
           });
           if (retryRes.ok) {
             const retryData = await retryRes.json();

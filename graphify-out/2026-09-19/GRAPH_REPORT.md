@@ -1,12 +1,12 @@
 # Graph Report - ReUseChain  (2026-09-19)
 
 ## Corpus Check
-- 84 files · ~88,701 words
+- 84 files · ~87,458 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 5 file(s) not represented in the graph (top: (none) 2, .example 1, .prisma 1)
 
 ## Summary
-- 424 nodes · 763 edges · 39 communities (22 shown, 13 thin omitted)
+- 422 nodes · 761 edges · 29 communities (18 shown, 7 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 12 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
@@ -41,16 +41,6 @@
 - gsd-help.md
 - next-env.d.ts
 - layout.tsx
-- remediate/route.ts
-- media/route.ts
-- services/route.ts
-- approvals/route.ts
-- settings/route.ts
-- verify-wipe/route.ts
-- keyboard/route.ts
-- dispatch/route.ts
-- intake/route.ts
-- cancel/route.ts
 
 ## God Nodes (most connected - your core abstractions)
 1. `prisma` - 33 edges
@@ -79,23 +69,23 @@
 ## Import Cycles
 - None detected.
 
-## Communities (39 total, 13 thin omitted)
+## Communities (29 total, 7 thin omitted)
 
 ### Community 0 - "react"
-Cohesion: 0.07
-Nodes (30): class-variance-authority, clsx, lucide-react, react, tailwind-merge, ActionProofDetails, CapabilitySuggestion, ChatMessage (+22 more)
+Cohesion: 0.08
+Nodes (28): class-variance-authority, lucide-react, react, ActionProofDetails, CapabilitySuggestion, ChatMessage, DiagnosticAssistantPage(), GraphEdge (+20 more)
 
 ### Community 1 - "prisma.ts"
-Cohesion: 0.15
-Nodes (4): dynamic, dynamic, dynamic, prisma
+Cohesion: 0.05
+Nodes (28): POST(), sha256(), dynamic, POST(), sha256(), execAsync, POST(), RemediationStepResult (+20 more)
 
 ### Community 2 - "telegram-service.ts"
 Cohesion: 0.09
-Nodes (46): AFTER_BOOKING_KEYBOARD, DEFAULT_KEYBOARD, pollAdminBot(), pollBackupBot(), sha256(), runVerification(), runVerification(), execAsync (+38 more)
+Nodes (44): pollAdminBot(), pollBackupBot(), sha256(), runVerification(), runVerification(), execAsync, POST(), sha256() (+36 more)
 
 ### Community 3 - "package.json"
 Cohesion: 0.06
-Nodes (31): name, private, scripts, agent:loop, build, dev, prisma:generate, prisma:push (+23 more)
+Nodes (33): name, private, scripts, agent:loop, build, dev, prisma:generate, prisma:push (+25 more)
 
 ### Community 4 - "workflow.ts"
 Cohesion: 0.10
@@ -153,26 +143,10 @@ Nodes (4): 🚀 Interactive Exploration in Web Application, 🎨 Master Unified 
 Cohesion: 0.50
 Nodes (3): Introduction to GitHub, :keyboard: Activity: Your first branch, Step 1: Create a branch
 
-### Community 29 - "remediate/route.ts"
-Cohesion: 0.47
-Nodes (4): execAsync, POST(), RemediationStepResult, sha256()
-
-### Community 30 - "media/route.ts"
-Cohesion: 0.60
-Nodes (3): generateVectorEmbedding(), POST(), sha256()
-
-### Community 31 - "services/route.ts"
-Cohesion: 0.60
-Nodes (3): parseSingleTurnPrompt(), POST(), sha256()
-
-### Community 34 - "verify-wipe/route.ts"
-Cohesion: 0.67
-Nodes (3): dynamic, POST(), sha256()
-
 ## Knowledge Gaps
-- **149 isolated node(s):** `name`, `version`, `private`, `dev`, `build` (+144 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 199 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **13 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **147 isolated node(s):** `name`, `version`, `private`, `dev`, `build` (+142 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 197 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -184,10 +158,10 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `lucide-react` connect `react` to `package.json`, `workflow.ts`, `layout.tsx`?**
   _High betweenness centrality (0.108) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `private` to the rest of the system?**
-  _149 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _147 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `react` be split into smaller, more focused modules?**
-  _Cohesion score 0.07199297629499561 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07552447552447553 - nodes in this community are weakly interconnected._
+- **Should `prisma.ts` be split into smaller, more focused modules?**
+  _Cohesion score 0.0514216575922565 - nodes in this community are weakly interconnected._
 - **Should `telegram-service.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.08852459016393442 - nodes in this community are weakly interconnected._
-- **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09351256575102279 - nodes in this community are weakly interconnected._
