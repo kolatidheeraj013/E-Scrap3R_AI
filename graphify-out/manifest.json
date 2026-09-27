@@ -520,5 +520,29 @@
     "seen": 1790494126.7741709,
     "ast_hash": "174861ff3c387bc1898444458bdda045",
     "semantic_hash": ""
+  },
+  ".agents/knowledge/architecture.md": {
+    "mtime": 1790503951.154524,
+    "seen": 1790503998.4071245,
+    "ast_hash": "564dfb47d50a25d0a04739df6afb99e3",
+    "semantic_hash": ""
+  },
+  ".agents/knowledge/current_context.md": {
+    "mtime": 1790503972.5888233,
+    "seen": 1790503998.4071279,
+    "ast_hash": "29d00d1e7f5e5ac2ae5b1d62d9a8c32b",
+    "semantic_hash": ""
+  },
+  ".agents/rules.md": {
+    "mtime": 1790503938.3989122,
+    "seen": 1790503998.4071295,
+    "ast_hash": "f69fd87c8d5188e447dc20e12da99db9",
+    "semantic_hash": ""
+  },
+  ".agents/workflows/pipeline.md": {
+    "mtime": 1790503961.5887587,
+    "seen": 1790503998.4071357,
+    "ast_hash": "aa819bb11343aa3cdfb760230839d2ad",
+    "semantic_hash": ""
   }
 }
